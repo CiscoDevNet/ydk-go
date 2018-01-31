@@ -1,0 +1,4 @@
+<logmsg xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-syslog-act">
+  <severity>info</severity>
+  <message>A custom informational message</message>
+</logmsg>

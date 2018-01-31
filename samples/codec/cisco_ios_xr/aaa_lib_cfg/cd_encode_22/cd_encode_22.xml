@@ -1,0 +1,17 @@
+<aaa xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-aaa-lib-cfg">
+  <usernames xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-aaa-locald-cfg">
+    <username>
+      <name>netop</name>
+      <ordering-index>22</ordering-index>
+      <secret>$1$Z/8E$GDBQs1PtqJnwlQ9kKGpXj/</secret>
+      <usergroup-under-usernames>
+        <usergroup-under-username>
+          <name>netadmin</name>
+        </usergroup-under-username>
+        <usergroup-under-username>
+          <name>operator</name>
+        </usergroup-under-username>
+      </usergroup-under-usernames>
+    </username>
+  </usernames>
+</aaa>
