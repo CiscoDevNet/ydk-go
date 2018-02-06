@@ -28,10 +28,9 @@ import (
 	"flag"
 	"fmt"
 	"github.com/CiscoDevNet/ydk-go/ydk"
-	ysanity_bgp "github.com/CiscoDevNet/ydk-go/ydk/models/ydktest/openconfig_bgp"
+	ysanity_bgp "github.com/CiscoDevNet/ydk-go/ydk/models/openconfig/bgp"
 	"github.com/CiscoDevNet/ydk-go/ydk/providers"
 	"github.com/CiscoDevNet/ydk-go/ydk/services"
-	"github.com/CiscoDevNet/ydk-go/ydk/types"
 	encoding "github.com/CiscoDevNet/ydk-go/ydk/types/encoding_format"
 )
 
@@ -107,7 +106,7 @@ func main() {
 	flag.Parse()
 
 	if *vPtr {
-		ydk.EnableLogging(ydk.Debug)
+		ydk.EnableLogging(ydk.Info)
 	}
 
 	var provider = providers.CodecServiceProvider{}

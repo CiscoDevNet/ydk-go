@@ -65,7 +65,7 @@ func main() {
 	flag.Parse()
 
 	if *vPtr {
-		ydk.EnableLogging(ydk.Debug)
+		ydk.EnableLogging(ydk.Info)
 	}
 
 	// create codec provider

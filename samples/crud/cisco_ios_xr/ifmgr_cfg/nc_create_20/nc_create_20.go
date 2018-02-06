@@ -58,7 +58,7 @@ func main() {
 
 	// log debug messages if verbose argument specified 
 	if *vPtr {
-		ydk.EnableLogging(ydk.Debug)
+		ydk.EnableLogging(ydk.Info)
 	}
 
 	if (*devicePtr == "") {
@@ -66,11 +66,11 @@ func main() {
 	}
 
 	ydk.YLogDebug(*devicePtr)
-	
+
 	denominators := []string{"://", ":", "@", ":"}
 	keys := []string {"protocol", "username", "password", "address", "port"}
 	device := make(map[string]string)
-	
+
 	var split []string
 	unprocessed := *devicePtr
 	for i := 0; i < 4; i++ {

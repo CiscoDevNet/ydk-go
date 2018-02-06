@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/CiscoDevNet/ydk-go.svg?branch=master)](https://travis-ci.org/CiscoDevNet/ydk-go)
+
+![ydk-logo-128](https://cloud.githubusercontent.com/assets/16885441/24175899/2010f51e-0e56-11e7-8fb7-30a9f70fbb86.png)
+
 # YANG Development Kit (Go)
 
 ## Overview
@@ -23,9 +27,16 @@ Centos (Fedora-based) - The following packages must be present in your system be
 
 ```
 $ sudo yum install epel-release
-$ sudo yum install libxml2-devel libxslt-devel libssh-devel libtool gcc-c++ pcre-devel cmake
+$ sudo yum install libxml2-devel libxslt-devel libssh-devel libtool gcc-c++ pcre-devel cmake libstdc++-static git
+
+# Upgrade gcc to > 5.*
+$ yum install centos-release-scl -y > /dev/null
+$ yum install devtoolset-4-gcc* -y > /dev/null
+$ ln -sf /opt/rh/devtoolset-4/root/usr/bin/gcc /usr/bin/gcc
+$ ln -sf /opt/rh/devtoolset-4/root/usr/bin/g++ /usr/bin/g++
 
 $ sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.7.0/libydk-0.7.0-1.x86_64.rpm
+
 ```
 
 **Mac**  

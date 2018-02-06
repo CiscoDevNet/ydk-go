@@ -69,7 +69,7 @@ func main() {
 
 	// log debug messages if verbose argument specified 
 	if *vPtr {
-		ydk.EnableLogging(ydk.Debug)
+		ydk.EnableLogging(ydk.Info)
 	}
 
 	if (*devicePtr == "") {

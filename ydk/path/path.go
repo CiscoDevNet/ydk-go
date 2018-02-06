@@ -24,7 +24,7 @@ package path
 
 // #cgo CXXFLAGS: -g -std=c++11
 // #cgo darwin LDFLAGS:  -fprofile-arcs -ftest-coverage -lydk -lxml2 -lxslt -lpcre -lssh -lssh_threads -lcurl -lpython -lc++
-// #cgo linux LDFLAGS:  -fprofile-arcs -ftest-coverage --coverage -lydk -lxml2 -lxslt -lpcre -lssh -lssh_threads -lcurl -lstdc++ -lpython2.7 -ldl
+// #cgo linux LDFLAGS:  -fprofile-arcs -ftest-coverage --coverage -lydk -lxml2 -lxslt -lpcre -lssh -lssh_threads -lcurl -lstdc++ -lpython2.7 -lm -ldl
 // #include <ydk/ydk.h>
 // #include <stdlib.h>
 import "C"
@@ -292,8 +292,8 @@ func ConnectToNetconfProvider(
 	var cprotocol *C.char = C.CString(protocol)
 	defer C.free(unsafe.Pointer(cprotocol))
 
-	var cOnDemand C.boolean = 0
-	if onDemand { cOnDemand = 1 }
+	var cOnDemand C.boolean = 1
+	if onDemand { cOnDemand = 0 }
 	var cCommonCache C.boolean = 0
 	if commonCache { cCommonCache = 1 }
 

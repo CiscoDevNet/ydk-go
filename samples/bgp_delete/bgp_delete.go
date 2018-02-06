@@ -27,8 +27,10 @@ package main
 import (
 	"flag"
 	"fmt"
+	"strconv"
+	"strings"
 	"github.com/CiscoDevNet/ydk-go/ydk"
-	oc_bgp "github.com/CiscoDevNet/ydk-go/ydk/models/ydktest/openconfig_bgp"
+	oc_bgp "github.com/CiscoDevNet/ydk-go/ydk/models/openconfig/bgp"
 	"github.com/CiscoDevNet/ydk-go/ydk/providers"
 	"github.com/CiscoDevNet/ydk-go/ydk/services"
 )
@@ -40,20 +42,59 @@ func main() {
 		}
 	}()
 
+
+	// args
 	vPtr := flag.Bool("v", false, "Enable verbose")
+	devicePtr := flag.String(
+		"device",
+		"",
+		"NETCONF device (ssh://user:password@host:port)")
 	flag.Parse()
 
+	// log debug messages if verbose argument specified 
 	if *vPtr {
-		ydk.EnableLogging(ydk.Debug)
+		ydk.EnableLogging(ydk.Info)
 	}
 
-	var provider providers.NetconfServiceProvider = providers.NetconfServiceProvider{
-		Address:  "127.0.0.1",
-		Username: "admin",
-		Password: "admin",
-		Port:     12022}
+	if (*devicePtr == "") {
+		panic("Missing device arg see --help for details")
+	}
 
+	ydk.YLogDebug(*devicePtr)
+
+	denominators := []string{"://", ":", "@", ":"}
+	keys := []string {"protocol", "username", "password", "address", "port"}
+	device := make(map[string]string)
+
+	var split []string
+	unprocessed := *devicePtr
+	for i := 0; i < 4; i++ {
+		if (!strings.Contains(unprocessed, denominators[i])) {
+			panic(fmt.Sprintln("Device arg: device must be entered in",
+				"ssh://user:password@host:port format"))
+		}
+		split = strings.SplitN(unprocessed, denominators[i], 2)
+
+		device[keys[i]] = split[0]
+		unprocessed = split[1]
+	}
+	device[keys[4]] = unprocessed
+
+	port, err := strconv.Atoi(device["port"])
+	if (err != nil) {
+		panic("Device arg: port must be an int")
+	}
+
+	// create NETCONF provider
+	provider := providers.NetconfServiceProvider{
+		Address: device["address"],
+		Username: device["username"],
+		Password: device["password"],
+		Port: port,
+		Protocol: device["protocol"]}
 	provider.Connect()
+
+
 
 	crud := services.CrudService{}
 
