@@ -58,7 +58,7 @@ $ go get github.com/CiscoDevNet/ydk-go/ydk
 ```
 
 ## Documentation and Support
-- Read the [API documentation](http://ydk.cisco.com/go/docs) for details on how to use the API and specific models
+- Read the [API documentation](http://ydk.cisco.com/go/docs/) for details on how to use the API and specific models
 - Samples can be found under the [samples directory](https://github.com/CiscoDevNet/ydk-go/tree/master/samples)
 - Additional samples can be found in the [YDK-Go samples repository](https://github.com/CiscoDevNet/ydk-go-samples) (coming soon)
 - Join the [YDK community](https://communities.cisco.com/community/developer/ydk) to connect with other users and with the makers of YDK
