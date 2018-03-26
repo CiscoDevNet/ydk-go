@@ -8,4 +8,4 @@ RUN echo 'Installing dependencies and ydk-go'
 
 WORKDIR /root/ydk-go
 
-RUN /bin/bash -c './dependencies_xenial.sh && ./tests.sh'
+RUN /bin/bash -c './dependencies_xenial.sh && ./install.sh'

@@ -1,11 +1,8 @@
 #!/bin/bash
 
 if [[ $(uname) == "Linux" ]] && [[ -z "${GOPATH// }" ]]; then
-    export GOPATH=/root
+    export GOPATH=/root/go-env
 fi
-
-echo "Installing YDK-Go"
-go get github.com/CiscoDevNet/ydk-go/ydk
 
 echo "Running codec samples"
 go run samples/codec/cisco_ios_xr/cdp_cfg/cd_encode_10/cd_encode_10.go -v
