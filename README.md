@@ -42,7 +42,7 @@ You can install YDK-Go on macOS or Linux.  It is not currently supported on Wind
 Ubuntu (Debian-based) - The following packages must be present in your system before installing YDK-Go:
 
 ```
-$ sudo apt-get install libcurl4-openssl-dev libpcre3-dev libssh-dev libxml2-dev libxslt1-dev libtool-bin cmake golang
+$ sudo apt-get install libcurl4-openssl-dev libpcre3-dev libssh-dev libxml2-dev libxslt1-dev libtool-bin cmake
 
 $ wget https://devhub.cisco.com/artifactory/debian-ydk/0.7.1/libydk_0.7.1-1_amd64.deb
 $ sudo gdebi libydk_0.7.1-1_amd64.deb
@@ -52,7 +52,7 @@ Centos (Fedora-based) - The following packages must be present in your system be
 
 ```
 $ sudo yum install epel-release
-$ sudo yum install libxml2-devel libxslt-devel libssh-devel libtool gcc-c++ pcre-devel cmake libstdc++-static git go
+$ sudo yum install libxml2-devel libxslt-devel libssh-devel libtool gcc-c++ pcre-devel cmake libstdc++-static git
 
 # Upgrade gcc to > 5.*
 $ yum install centos-release-scl -y > /dev/null
